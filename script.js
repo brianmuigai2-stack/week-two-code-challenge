@@ -1,17 +1,17 @@
 fetch("http://localhost:3000/characters")
   .then(res => res.json())
   .then(data => {
-    const listDiv = document.getElementById("animalList");
+    const listAnimals = document.getElementById("animalList");
 
     data.forEach(animal => {
     
-      const btn = document.createElement("button");
-      btn.innerText = animal.name;
-      btn.onclick = () => showAnimal(animal);
-      listDiv.appendChild(btn);
+      const button = document.createElement("button");
+      button.innerText = animal.name;
+      button.onclick = () => showAnimal(animal);
+      listAnimals.append(button);
     });
   })
-  .catch(err => console.error("Error fetching animals:", err));
+  .catch(error => console.log("Error fetching animals:", error));
 
 
 function showAnimal(animal) {
